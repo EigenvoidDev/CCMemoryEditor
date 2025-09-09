@@ -41,10 +41,10 @@ If your antivirus software blocks the application, consider adding it to your al
 ## Important Notes
 
 ### Launch Castle Crashers First
-To ensure that the tool can detect and scan the game process correctly, launch `castle.exe` *before* opening CCMemoryEditor. The integrated scan delay helps even if you open the tool before launching the game, but launching the game first is recommended for smooth operation.
+To ensure that the tool can detect and scan the game process correctly, launch Castle Crashers *before* opening CCMemoryEditor. The integrated scan delay helps even if you open the tool before launching the game, but launching the game first is recommended for smooth operation.
 
 ### Fast Scan Enabled by Default in Prebuilt Executable
-The prebuilt executable sets **Fast Scan** to true by default. Fast Scan optimizes memory scanning by skipping certain memory ranges and starting at address `0x07000000`. Character data in Castle Crashers consistently resides in heap-allocated regions starting above this address, so restricting the scan improves performance and avoids noise. You can toggle this behavior by changing the `FAST_SCAN` variable in `config.py`. Setting it to `False` will scan the entire process memory instead.
+The prebuilt executable sets **Fast Scan** to `True` by default. Fast Scan optimizes memory scanning by skipping certain ranges and starting at address `0x07000000`. Since character data in Castle Crashers is consistently found in heap-allocated regions starting above this address, restricting the scan improves performance and avoids noise. You can toggle this behavior by changing the `FAST_SCAN` variable in `config.py`. If Fast Scan is enabled but no character data appears, set this value to `False` to scan the entire process memory instead.
 
 ### DLC Unlocks are not Permanent
 Any changes you make to unlock DLC are temporary. The game verifies DLC ownership each time it launches, so any DLC-dependent items or features will be removed when restarting the game.
@@ -53,5 +53,6 @@ Any changes you make to unlock DLC are temporary. The game verifies DLC ownershi
 The game enforces maximum values for stats (e.g., 99 for Level; 25 for Strength, Defense, Magic, and Agility). If you exceed these values, your changes may be rolled back when the game closes. You can always reapply your desired configuration within these limits.
 
 ## License
+
 
 CCMemoryEditor is licensed under the [GNU General Public License v3.0 (GPLv3)](https://github.com/EigenvoidDev/CCMemoryEditor/blob/main/LICENSE).
