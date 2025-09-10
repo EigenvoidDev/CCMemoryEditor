@@ -23,9 +23,9 @@ If you are on **Windows**, download the prebuilt executable from the [Releases p
 
 #### Windows Security Warnings
 
-On **Windows 8 and newer**, you may see a **SmartScreen warning** because this application is unsigned. The application is not digitally signed because code-signing certificates require a paid license. As a result, Windows may label it as being from an unknown publisher.
+On **Windows 8 and later**, you may encounter a **SmartScreen warning** because this application is unsigned. The application is not digitally signed because code-signing certificates require a paid license. As a result, Windows may display it as coming from an unknown publisher.
 
-Similarly, some antivirus software may flag the application as suspicious or prevent it from being downloaded. These detections are **false positives**. 
+Some antivirus software may also flag the application as suspicious or prevent it from being downloaded. These detections are **false positives**. 
 
 You can verify the safety of the application by reviewing the source code directly in this repository or building the executable yourself.
 
@@ -33,7 +33,7 @@ If your antivirus software blocks the application, consider adding it to your al
 
 ## Usage
 1. Launch Castle Crashers and load to the title screen.
-2. Open CCMemoryEditor. The tool will automatically detect the game process and populate the editor with character data. Wait until the data is loaded before interacting.
+2. Open CCMemoryEditor. The tool will automatically detect the game process and load character data. Do not interact with the editor until the data has finished loading.
 3. Select a character from the list. You can then edit stats and unlocks for that character.
 4. Click the "Apply Changes" button to update the character data in memory instantly.
 5. To save your changes, load the selected character into a level and then select "Exit To Map".

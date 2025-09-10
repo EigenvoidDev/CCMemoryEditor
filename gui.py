@@ -128,13 +128,17 @@ class GameProcessMonitor:
         return f"[{timestamp}] {message}"
 
     def append_status(self, message, color):
+        message = message.rstrip("\n")
+        
         timestamp = f"[{datetime.now().strftime('%H:%M:%S')}] "
 
         self.status_log.setTextColor(QColor("#f0f0f0"))
         self.status_log.insertPlainText(timestamp)
 
         self.status_log.setTextColor(color)
-        self.status_log.insertPlainText(message + "\n")
+        self.status_log.insertPlainText(message)
+        
+        self.status_log.insertPlainText("\n")
 
         self.status_log.moveCursor(QTextCursor.MoveOperation.End)
 
@@ -425,7 +429,7 @@ def run_gui():
     app.setWindowIcon(QIcon(icon_path))
 
     window = QWidget()
-    window.setWindowTitle("Castle Crashers Memory Editor v1.0.0")
+    window.setWindowTitle("Castle Crashers Memory Editor v1.0.1")
     window.setWindowIcon(QIcon(icon_path))
 
     window.setWindowFlags(Qt.WindowType.Window
