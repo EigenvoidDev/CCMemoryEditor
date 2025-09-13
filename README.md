@@ -2,7 +2,7 @@
 
 [Castle Crashers](https://www.castlecrashers.com/) is a beat 'em up video game developed and published by [The Behemoth](https://www.thebehemoth.com/).
 
-**CCMemoryEditor** is a desktop GUI tool for Castle Crashers that allows you to view and modify character data directly in memory. It scans the game process in real-time, letting you view and modify character stats and unlocks instantly via an intuitive interface.
+**CCMemoryEditor** is a desktop GUI tool for Castle Crashers that allows you to view and modify character data directly in memory.
 
 ## Installation
 
@@ -55,3 +55,4 @@ The game enforces maximum values for stats (e.g., 99 for Level, 25 for Strength,
 ## License
 
 CCMemoryEditor is licensed under the [GNU General Public License v3.0 (GPLv3)](https://github.com/EigenvoidDev/CCMemoryEditor/blob/main/LICENSE).
+
