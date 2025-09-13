@@ -3,7 +3,7 @@ import os
 import sys
 
 from PyQt6.QtCore import Qt, QTimer
-from PyQt6.QtGui import QColor, QIcon, QPixmap, QTextCursor
+from PyQt6.QtGui import QColor, QIcon, QPixmap, QTextCharFormat, QTextCursor
 from PyQt6.QtWidgets import (
     QApplication,
     QCheckBox,
@@ -123,24 +123,23 @@ class GameProcessMonitor:
             apply_changes_button.clicked.connect(self.apply_current_changes)
 
     # ---------------------- Status ----------------------
-    def _timestamped(self, message):
-        timestamp = datetime.now().strftime("%H:%M:%S")
-        return f"[{timestamp}] {message}"
-
     def append_status(self, message, color):
-        message = message.rstrip("\n")
-        
+        message = str(message).rstrip("\n")
         timestamp = f"[{datetime.now().strftime('%H:%M:%S')}] "
 
-        self.status_log.setTextColor(QColor("#f0f0f0"))
-        self.status_log.insertPlainText(timestamp)
+        cursor = self.status_log.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.End)
 
-        self.status_log.setTextColor(color)
-        self.status_log.insertPlainText(message)
-        
-        self.status_log.insertPlainText("\n")
+        timestamp_format = QTextCharFormat()
+        timestamp_format.setForeground(QColor("#f0f0f0"))
+        cursor.insertText(timestamp, timestamp_format)
 
-        self.status_log.moveCursor(QTextCursor.MoveOperation.End)
+        message_format = QTextCharFormat()
+        message_format.setForeground(color)
+        cursor.insertText(message + "\n", message_format)
+
+        self.status_log.setTextCursor(cursor)
+        self.status_log.ensureCursorVisible()
 
     def check_process(self):
         try:
@@ -429,7 +428,7 @@ def run_gui():
     app.setWindowIcon(QIcon(icon_path))
 
     window = QWidget()
-    window.setWindowTitle("Castle Crashers Memory Editor v1.0.1")
+    window.setWindowTitle("Castle Crashers Memory Editor v1.0.2")
     window.setWindowIcon(QIcon(icon_path))
 
     window.setWindowFlags(Qt.WindowType.Window
